@@ -11,13 +11,17 @@ const SimpleInput = (props) => {
   const formSubmissionHandler = (event) => {
     event.preventDefault();
 
+    if (enteredName.trim() === "") { // trim() to delete excess spaces 
+      return;
+    }
+
     console.log(enteredName); // with state
 
     const enteredValue = nameInputRef.current.value;
     console.log(enteredValue); // with ref
 
-    nameInputRef.current.value = ""; // => not ideal, DO NOT MANIPULATE DOM ELEMENT
-   // setEnteredName("");
+    // nameInputRef.current.value = ""; // => not ideal, DO NOT MANIPULATE DOM ELEMENT
+    setEnteredName(""); // OVERALL STATE IS BETTER BECAUSE YOU CAN RESET THE FORM AFTER SUBMISSION WITHOUT DOM MANIPULATION
   };
 
   return (
