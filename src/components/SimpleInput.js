@@ -14,15 +14,17 @@ const SimpleInput = (props) => {
 
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
+
+    if (enteredName.trim() !== "") {
+      setEnteredNameIsValid(true);
+    }
   };
 
   const nameInputBlurHandler = (event) => {
     setEnteredNameTouched(true);
 
     if (enteredName.trim() === "") {
-      // trim() to delete excess spaces
       setEnteredNameIsValid(false);
-      return;
     }
   };
 
