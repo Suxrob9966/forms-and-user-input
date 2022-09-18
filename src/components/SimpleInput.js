@@ -10,10 +10,10 @@ const SimpleInput = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [entereEmailTouched, setEnteredEmailTouched] = useState(false);
 
-  const enteredEmailIsValid = enteredEmail.includes("@") && enteredEmail !== "";
+  const enteredEmailIsValid = enteredEmail.includes("@"); // && enteredEmail !== "";
   const emailInputIsInvalid = !enteredEmailIsValid && entereEmailTouched;
 
-  const [formIsValid, setFormIsValid] = useState(false);
+  /* const [formIsValid, setFormIsValid] = useState(false);
 
   useEffect(() => {
     if (enteredNameIsValid && enteredEmailIsValid) {
@@ -21,15 +21,15 @@ const SimpleInput = (props) => {
     } else {
       setFormIsValid(false);
     }
-  }, [enteredNameIsValid, enteredEmail]);
+  }, [enteredNameIsValid, enteredEmail]); */
 
   //alternative to using useEffect variant
 
-  /*let formIsValid = false;
+  let formIsValid = false;
 
-  if (enteredNameIsValid) {
+  if (enteredNameIsValid && enteredEmailIsValid) {
     formIsValid = true;
-  }*/
+  }
 
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
