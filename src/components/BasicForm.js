@@ -37,14 +37,12 @@ const BasicForm = (props) => {
 
   const formSubmissionHandler = (event) => {
     event.preventDefault();
-    console.log(enteredName);
-    if (
-      !enteredNameIsValid ||
-      !enteredLastNameIsValid ||
-      !enteredEmailIsValid
-    ) {
+    if (!formIsValid) {
       return;
     }
+    console.log(enteredName);
+    console.log(enteredLastName);
+    console.log(enteredEmail);
 
     resetNameInput();
     resetLastNameInput();
@@ -94,7 +92,7 @@ const BasicForm = (props) => {
       <div className={emailInputClasses}>
         <label htmlFor="name">E-Mail Address</label>
         <input
-          type="text"
+          type="email"
           id="name"
           onChange={emailChangedHandler}
           onBlur={emailBlurHandler}
